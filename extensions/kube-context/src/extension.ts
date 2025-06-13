@@ -58,7 +58,7 @@ export async function updateContext(
   const kubeConfig = jsYaml.load(kubeConfigRawContent) as KubeConfig;
 
   // get the current context
-  const currentContext = String(kubeConfig?.['current-context']);
+  const currentContext = String(kubeConfig?.['current-context'] ?? '');
 
   // get all contexts
   const contexts: KubeContext[] = kubeConfig?.['contexts'] ? kubeConfig['contexts'] : [];
